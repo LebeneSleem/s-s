@@ -1,3 +1,5 @@
+#include "shell.h"
+
 /**
  * swap_int - Swaps the values of two integers.
  * @a: Pointer to the first integer.

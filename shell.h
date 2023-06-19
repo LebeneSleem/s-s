@@ -14,7 +14,8 @@
 #define BUFFER_SIZE 1024
 #define Max_Command 20
 
-
+void swap_int(int *a, int *b);
+void bubble_sort(int *array, size_t size);
 void prompt_command(char **av, char **env);
 
 

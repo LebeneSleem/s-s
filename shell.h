@@ -12,18 +12,22 @@
 
 
 #define BUFFER_SIZE 1024
-#define Max_Command 20
-#define PATH_MAX 1024
+#define Max_ARGUMENTS 20
+#define PATH_MAX 100
 
 void swap_int(int *a, int *b);
 void bubble_sort(int *array, size_t size);
 void prompt_command(char **av, char **env);
+
+/**custom alternate functions used*/
 int string_len(char *string);
 char *string_cpy(char *dest, char *src);
 int string_cmp(char *s1, char *s2);
 char *_strdup(char *str);
-void _env(char **env);
-char* handle_path(char* command);
 
+void _env(char **env);
+char *handle_path(char *command);
+void handle_arguments(char *lineptr, char **argv);
+void handle_command_execution(char **argv, char **env);
 
 #endif

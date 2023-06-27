@@ -36,7 +36,6 @@ void display_command_prompt(char **env)
 		}
 		handle_arguments(lineptr, argv);
 		handle_command_execution(argv, env);
-
-		free(lineptr);
 	}
+	free(lineptr);
 }

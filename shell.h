@@ -29,5 +29,6 @@ void _env(char **env);
 char *handle_path(char *command);
 void handle_arguments(char *lineptr, char **argv);
 void handle_command_execution(char **argv, char **env);
+void display_command_prompt(char **env);
 
 #endif

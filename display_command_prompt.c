@@ -11,30 +11,31 @@ void display_command_prompt(char **env)
 	char *lineptr = NULL;
 	size_t n = 0;
 	ssize_t input;
-	int a = 0;
+	int a;
 	char *argv[Max_Arguments];
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
 		{
-			write(STDOUT_FILENO, "simple_shell$  ", 15);
+			write(STDOUT_FILENO, "simple_shell$ ", 15);
 		}
-		/*input = custom_getline();*/
+
 		input = getline(&lineptr, &n, stdin);
-		if (input == NULL)
+		if (input == -1)
 		{
-			free(/*input*/lineptr);
+			free(lineptr);
 			exit(EXIT_FAILURE);
 		}
-		while (/*input*/lineptr[a])
+		a = 0;
+		while (lineptr[a])
 		{
 			if (lineptr[a] == '\n')
 				lineptr[a] = 0;
 			a++;
 		}
-		handle_arguments(input, argv);
-		exec_command(argv, env);
+		handle_arguments(lineptr, argv);
+		handle_command_execution(argv, env);
 	}
-	free(/*input*/lineptr);
+	free(lineptr);
 }

@@ -12,8 +12,11 @@
 
 
 #define BUFFER_SIZE 1024
-#define Max_ARGUMENTS 20
+#define Max_Arguments 20
 #define PATH_MAX 100
+
+/**Shell entry point**/
+int main(int ac, char **av, char **env);
 
 void swap_int(int *a, int *b);
 void bubble_sort(int *array, size_t size);

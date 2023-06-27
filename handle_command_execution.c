@@ -28,6 +28,8 @@ void handle_command_execution(char **argv, char **env)
 			if (execve(path, argv, env) == -1)
 			{
 				perror("execve");
+				free(path);
+				exit(EXIT_FAILURE);
 			}
 			free(path);
 		}

@@ -12,7 +12,7 @@
 
 void handle_arguments(char *lineptr, char **argv)
 {
-	int b = 0;
+	int b = 0, c;
 	char *args, *lineptr_copy;
 
 	lineptr_copy = _strdup(lineptr);
@@ -31,6 +31,13 @@ void handle_arguments(char *lineptr, char **argv)
 	if (string_cmp(argv[0], "exit") == 0)
 	{
 		free(lineptr);
+
+		for (c = 0; c < b; c++)
+		{
+			free(argv[c]);
+		}
+		free(lineptr_copy);
 		exit(EXIT_SUCCESS);
 	}
+	free(lineptr_copy);
 }
